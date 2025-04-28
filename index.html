@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJOTTA TRADE</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+    iframe {
+      margin-top: 30px;
+      width: 90%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+    .counter {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #00ff88;
+    }
+    .signal {
+      margin-top: 20px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PJOTTA TRADE</h1>
+  <p><em>"Eu sou a prova viva de que sonhos não envelhecem, eles se tornam realidade."</em></p>
+
+  <h2>Gráfico ao Vivo (EUR/USD)</h2>
+  <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_5eecb&symbol=FX:EURUSD&interval=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=[]&theme=dark&style=1&timezone=America%2FSao_Paulo&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=1" frameborder="0"></iframe>
+
+  <div class="signal" id="signal">
+    Sinal Atual: Aguardando...
+  </div>
+
+  <div class="counter" id="counter">
+    Faltam R$ 999.900,00 para seu 1 MILHÃO
+  </div>
+
+  <script>
+    // Atualização simulada de sinais (exemplo para depois conectar real-time)
+    setInterval(() => {
+      const sinais = ["Compra Forte", "Venda Forte", "Aguardando Sinal"];
+      const sinalAtual = sinais[Math.floor(Math.random() * sinais.length)];
+      document.getElementById('signal').innerText = `Sinal Atual: ${sinalAtual}`;
+    }, 60000); // Atualiza o sinal a cada 60 segundos
+
+    // Atualização do contador
+    let banca = 100; // Saldo inicial
+    const alvo = 1000000; // Alvo: 1 milhão
+    const incrementoDiario = banca * 0.02; // Crescimento de 2% ao dia
+    setInterval(() => {
+      banca += incrementoDiario;
+      const falta = alvo - banca;
+      document.getElementById('counter').innerText = `Faltam R$ ${falta.toFixed(2).replace('.', ',')} para seu 1 MILHÃO`;
+    }, 86400000); // Atualiza a cada 24 horas (um dia)
+  </script>
+
+</body>
+</html>
